@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Смешарики - Мой любимый мультфильм</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- КРАСИВЫЙ ЖИВОЙ ФОН -->
+    <div class="aurora-bg">
+        <div class="aurora-blob aurora-1"></div>
+        <div class="aurora-blob aurora-2"></div>
+        <div class="aurora-blob aurora-3"></div>
+        <div id="stars-container"></div> <!-- Контейнер для падающих звезд -->
+    </div>
+
+    <!-- ШАПКА -->
+    <div class="movie-header-bg">
+        <div class="movie-header">
+            <div class="header-text">
+                <h1 class="movie-title">Смешарики</h1>
+                <div class="movie-meta">2004 • Приключения, комедия • 6+</div>
+            </div>
+            <div class="poster-wrapper">
+                <img src="https://static.wikia.nocookie.net/smesharikiarhives/images/6/67/Screenshot_729.png/revision/latest?cb=20221228213223&path-prefix=ru" alt="Смешарики" class="poster">
+            </div>
+        </div>
+    </div>
+
+    <!-- БЕГУЩАЯ СТРОКА -->
+    <div class="marquee-wrapper">
+        <div class="marquee">
+            <span>✨ Сайт создала Лера ✨ Сделано с душой ✨ Смешарики навсегда ✨</span>
+            <span>✨ Сайт создала Лера ✨ Сделано с душой ✨ Смешарики навсегда ✨</span>
+            <span>✨ Сайт создала Лера ✨ Сделано с душой ✨ Смешарики навсегда ✨</span>
+            
+        </div>
+    </div>
+
+    <!-- БЛОКНОТ СЛЕВА -->
+    <div class="notebook-wrapper">
+        <div class="glass-card notebook">
+            <h3>📝 Твоя главная мысль</h3>
+            <p class="notebook-desc">Напиши, что для тебя значит этот мультфильм:</p>
+            <textarea id="user-idea" placeholder="Моя главная мысль..." rows="8"></textarea>
+            <button class="edit-btn" onclick="saveUserIdea()" style="width: 100%; margin-top: 15px;">Сохранить</button>
+        </div>
+    </div>
+
+    <!-- КАРТОЧКА ФАКТОВ СПРАВА -->
+    <div class="fact-wrapper">
+        <div class="glass-card fact-card">
+            <h3>💡 А ты знал?</h3>
+            <p id="fact-text">Нажми на кнопку, чтобы узнать случайный факт о Смешариках!</p>
+            
+            <div style="display: flex; gap: 10px; flex-direction: column;">
+                <button class="edit-btn" id="new-fact-btn">Случайный факт</button>
+                <button class="edit-btn" id="science-fact-btn" style="background: var(--accent-blue); box-shadow: 0 5px 0 #2980b9;">Факт о создании</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <!-- Главная мысль -->
+        <div class="glass-card main-idea">
+            <h2>Главная мысль</h2>
+            <p>Главная мысль серии в том, что, как бы не было страшно, как бы не было трудно, рано или поздно, ты это сделаешь, и может быть даже не заетишь, но сильнее станешь однозначно.
+            </p>
+        </div>
+        <article class="movie-card">
+  <h3 class="card-label">Сам фильм</h3>
+  
+  <div class="link-video-container">
+    <!-- ВСТАВЬ СВОЮ ССЫЛКУ ВМЕСТО # -->
+    <a href="https://yandex.ru/video/preview/14018153724783846656" target="_blank" class="video-link-btn">
+      <span class="play-icon">▶</span> Смотреть мультфильм
+    </a>
+  </div>
+</article>
+
+        <!-- Персонажи -->
+        <h2 class="section-title">Персонажи</h2>
+        <div class="characters-grid">
+            <div class="glass-card character-card">
+                <img src="копат.jpg" alt="Копатыч" class="character-img">
+                <div class="character-info">
+                    <h3>Копатыч</h3>
+                    <p>Отличный лидер,но иногда не уверен в себе</p>
+                </div>
+            </div>
+            <div class="glass-card character-card">
+                <img src="чубра2.webp" alt="Кар-Карыч" class="character-img">
+                <div class="character-info">
+                    <h3>Кар-Карыч</h3>
+                    <p>Самостоятельный,способный,но тоже не ло конца уверен в себе.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ИНТЕРАКТИВ: СПОРТИВНЫЙ МАРАФОН -->
+        <div class="glass-card race-game">
+            <h2>Спортивный марафон: Кар-Карыч vs Копатыч</h2>
+            <p>Кто из них быстрее добежит до финиша?</p>
+            
+            <div class="race-track">
+                <div class="lane">
+                    <img src="кар.webp" alt="Кар-Карыч" class="runner" id="runner-karych">
+                    <div class="finish-line"></div>
+                </div>
+                <div class="lane">
+                    <img src="коп.jpg" alt="Копатыч" class="runner" id="runner-kopatych">
+                    <div class="finish-line"></div>
+                </div>
+            </div>
+
+            <div id="race-result" class="race-result"></div>
+            <button class="edit-btn" id="start-race-btn">Старт!</button>
+        </div>
+
+        <!-- Кадры (в самом конце) -->
+        <h2 class="section-title">Кадры</h2>
+        <div class="gallery-grid">
+            <img src="https://avatars.mds.yandex.net/get-vthumb/3977336/c2258106a74f1648b570b448c3845a45/800x450" alt="Кадр 1" class="gallery-img">
+            <img src="кадр1.jpg" alt="Кадр 2" class="gallery-img">
+             <img src="https://avatars.mds.yandex.net/i?id=496c2c0038883b4aa2df701f2ab76191_l-7545599-images-thumbs&n=13" alt="Кадр 2" class="gallery-img">
+        </div>
+        
+
+    </div>
+
+    <footer>
+        Сайт создан для проекта · Автор: Лера
+    </footer>
+
+    <!-- СКРИПТЫ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // --- 1. Блокнот ---
+            const textarea = document.getElementById('user-idea');
+            if (textarea) {
+                const savedIdea = localStorage.getItem('smeshariki_user_idea');
+                if (savedIdea) textarea.value = savedIdea;
+            }
+
+            // --- 2. Факты ---
+            const factText = document.getElementById('fact-text');
+            const randomBtn = document.getElementById('new-fact-btn');
+            const scienceBtn = document.getElementById('science-fact-btn');
+
+            if (factText && randomBtn && scienceBtn) {
+                const randomFacts = [
+                    "Изначально Смешариков хотели назвать «Сластями».",
+                    "Крош — это не кролик, а кролик-волшебник.",
+                    "Копатыч — самый сильный Смешарик. Он может поднять даже слона.",
+                    "Кар-Карыч — бывший артист цирка.",
+                    "Всего в сериале 7 главных персонажей.",
+                    "Смешарики переведены на 60 языков мира!",
+                    "В некоторых сериях есть отсылки к «Матрице».",
+                    "Смешарики — единственный российский мультсериал, получивший госпремию."
+                ];
+                const scienceFacts = [
+                    "Художник Салават Шайхинуров придумал круглую форму персонажей.",
+                    "Изначально персонажи были игрушками.",
+                    "Каждая серия длится около 6 минут, но создается несколько месяцев.",
+                    "Смешарики — один из самых дорогих российских анимационных проектов."
+                ];
+
+                randomBtn.addEventListener('click', () => {
+                    factText.textContent = randomFacts[Math.floor(Math.random() * randomFacts.length)];
+                });
+                scienceBtn.addEventListener('click', () => {
+                    factText.textContent = scienceFacts[Math.floor(Math.random() * scienceFacts.length)];
+                });
+            }
+
+            // --- 3. Марафон ---
+            const startBtn = document.getElementById('start-race-btn');
+            const karych = document.getElementById('runner-karych');
+            const kopatych = document.getElementById('runner-kopatych');
+            const resultDiv = document.getElementById('race-result');
+
+            if (startBtn && karych && kopatych) {
+                let raceInterval;
+
+                startBtn.addEventListener('click', function() {karych.style.left = '10px';
+                    kopatych.style.left = '10px';
+                    resultDiv.textContent = '';
+                    startBtn.disabled = true;
+                    startBtn.textContent = 'Бегут...';
+
+                    let karychPos = 10;
+                    let kopatychPos = 10;
+                    let karychSpeed = Math.random() * 2 + 1;
+                    let kopatychSpeed = Math.random() * 2 + 1;
+                    if (karychSpeed === kopatychSpeed) karychSpeed += 0.5;
+
+                    clearInterval(raceInterval);
+
+                    raceInterval = setInterval(function() {
+                        karychPos += karychSpeed;
+                        kopatychPos += kopatychSpeed;
+
+                        karych.style.left = karychPos + 'px';
+                        kopatych.style.left = kopatychPos + 'px';
+
+                        const finishLine = karych.parentElement.clientWidth - 80;
+
+                        if (karychPos >= finishLine || kopatychPos >= finishLine) {
+                            clearInterval(raceInterval);
+                            startBtn.disabled = false;
+                            startBtn.textContent = 'Еще раз!';
+
+                            if (karychPos >= finishLine && kopatychPos >= finishLine) {
+                                resultDiv.textContent = "Ничья! Оба молодцы!";
+                            } else if (karychPos >= finishLine) {
+                                resultDiv.textContent = "Кар-Карыч победил! 🦅";
+                            } else {
+                                resultDiv.textContent = "Копатыч победил! 🐻";
+                            }
+                        }
+                    }, 50);
+                });
+            }
+
+            // --- 4. Падающие звезды ---
+            const starContainer = document.getElementById('stars-container');
+            if (starContainer) {
+                function createStar() {
+                    const star = document.createElement('div');
+                    star.classList.add('star');
+                    const size = Math.random() * 4 + 2;
+                    star.style.width = size + 'px';
+                    star.style.height = size + 'px';
+                    star.style.left = Math.random() * 100 + '%';
+                    const duration = Math.random() * 5 + 3;
+                    star.style.animationDuration = duration + 's';
+                    starContainer.appendChild(star);
+                    setTimeout(() => { star.remove(); }, duration * 1000);
+                }
+                setInterval(createStar, 300);
+            }
+        });
+
+        // Функция сохранения блокнота
+        function saveUserIdea() {
+            const textarea = document.getElementById('user-idea');
+            if (!textarea) return;
+            localStorage.setItem('smeshariki_user_idea', textarea.value);
+            alert('Твоя мысль сохранена! 🎉');
+        }
+    </script>
+</body>
+</html>
